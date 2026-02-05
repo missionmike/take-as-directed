@@ -49,3 +49,44 @@ function take_as_directed_custom_styles_inline()
 		}
     </style>';
 }
+
+/**
+ * Output Person JSON-LD schema in the footer (runs on every page regardless of template).
+ */
+function take_as_directed_person_schema()
+{
+	?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://takeasdirected.missionmike.dev/about-the-author/#person",
+  "name": "Michael Dinerstein",
+  "url": "https://takeasdirected.missionmike.dev/about-the-author/",
+  "image": "https://takeasdirected.missionmike.dev/path-to-author-photo.jpg",
+  "jobTitle": "Software Engineer",
+  "description": "",
+  "sameAs": [
+    "https://www.linkedin.com/in/michaeldinerstein/",
+    "https://github.com/missionmike"
+  ],
+  "knowsAbout": [
+    "WordPress Development",
+    "Next.js",
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "Cloud Infrastructure",
+    "Web Performance Optimization",
+    "SEO",
+    "Writing"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://takeasdirected.missionmike.dev/about-the-author/"
+  }
+}
+</script>
+	<?php
+}
+add_action('wp_footer', 'take_as_directed_person_schema');
