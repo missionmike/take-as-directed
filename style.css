@@ -73,3 +73,7 @@ hr.wp-block-separator {
 .wp-block-page-list .wp-block-pages-list__item:last-child {
     margin-top: 4rem;
 }
+
+.is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 100%;
+}
