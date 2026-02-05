@@ -78,7 +78,8 @@ hr.wp-block-separator {
     max-width: 100%;
 }
 
-.wp-block-image.size-full {
+.wp-block-image.size-full,
+.wp-block-image.size-full img {
     width: 100%;
     height: auto;
 }
