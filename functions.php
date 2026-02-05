@@ -85,7 +85,7 @@ function take_as_directed_person_schema()
 				"https://www.youtube.com/@missionmike.d",
 				"https://www.youtube.com/@sleepyslawths",
 				"https://www.youtube.com/@sleepyslawthgaming",
-				"https://www.youtube.com/@michaelndad",
+				"https://www.youtube.com/@michaelndad"
 			],
 			"knowsAbout": [
 				"Software Engineering",
