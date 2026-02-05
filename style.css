@@ -80,6 +80,6 @@ hr.wp-block-separator {
 
 .wp-block-image.size-full,
 .wp-block-image.size-full img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
