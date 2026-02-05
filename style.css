@@ -77,3 +77,8 @@ hr.wp-block-separator {
 .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     max-width: 100%;
 }
+
+.wp-block-image.size-full {
+    width: 100%;
+    height: auto;
+}
