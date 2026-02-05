@@ -55,38 +55,42 @@ function take_as_directed_custom_styles_inline()
  */
 function take_as_directed_person_schema()
 {
-	?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://takeasdirected.missionmike.dev/about-the-author/#person",
-  "name": "Michael Dinerstein",
-  "url": "https://takeasdirected.missionmike.dev/about-the-author/",
-  "image": "https://takeasdirected.missionmike.dev/path-to-author-photo.jpg",
-  "jobTitle": "Software Engineer",
-  "description": "",
-  "sameAs": [
-    "https://www.linkedin.com/in/michaeldinerstein/",
-    "https://github.com/missionmike"
-  ],
-  "knowsAbout": [
-    "WordPress Development",
-    "Next.js",
-    "React",
-    "JavaScript",
-    "TypeScript",
-    "Cloud Infrastructure",
-    "Web Performance Optimization",
-    "SEO",
-    "Writing"
-  ],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://takeasdirected.missionmike.dev/about-the-author/"
-  }
-}
-</script>
-	<?php
+	$current_url = is_singular()
+		? get_permalink(get_queried_object_id())
+		: home_url(isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : '');
+	$current_url = esc_url($current_url);
+?>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"@id": "https://takeasdirected.missionmike.dev/about-the-author/#person",
+			"name": "Michael Dinerstein",
+			"url": "<?php echo esc_url($current_url); ?>",
+			"image": "https://takeasdirected.missionmike.dev/path-to-author-photo.jpg",
+			"jobTitle": "Software Engineer",
+			"description": "",
+			"sameAs": [
+				"https://www.linkedin.com/in/michaeldinerstein/",
+				"https://github.com/missionmike"
+			],
+			"knowsAbout": [
+				"WordPress Development",
+				"Next.js",
+				"React",
+				"JavaScript",
+				"TypeScript",
+				"Cloud Infrastructure",
+				"Web Performance Optimization",
+				"SEO",
+				"Writing"
+			],
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "<?php echo esc_url($current_url); ?>"
+			}
+		}
+	</script>
+<?php
 }
 add_action('wp_footer', 'take_as_directed_person_schema');
