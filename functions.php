@@ -70,7 +70,7 @@ function take_as_directed_person_schema()
 			"url": "<?php echo esc_url($current_url); ?>",
 			"image": "https://takeasdirected.missionmike.dev/wp-content/uploads/2026/01/family-gaming-photo-with-memphis.jpg",
 			"jobTitle": ["Chief Technology Officer", "Senior Software Engineer", "Web Architect", "Content Creator"],
-			"description": "",
+			"description": "Michael R. Dinerstein (Mission Mike) is a technically-inclined creative with a love for family, life, innovation and expression. When not working on tech, you can find him producing YouTube content with his family.",
 			"sameAs": [
 				"https://www.linkedin.com/in/michaeldinerstein/",
 				"https://github.com/missionmike",
