@@ -44,7 +44,7 @@ function take_as_directed_og_author_and_date()
 	$published = get_the_date('c', $post_id);
 	if ($author_name) {
 		echo '<meta property="og:author" content="' . esc_attr($author_name) . '" />' . "\n";
-		echo '<meta property="author" content="' . esc_attr($author_name) . '" />' . "\n";
+		echo '<meta name="author" content="' . esc_attr($author_name) . '" />' . "\n";
 	}
 	if ($published) {
 		echo '<meta property="article:published_time" content="' . esc_attr($published) . '" />' . "\n";
