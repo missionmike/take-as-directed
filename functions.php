@@ -31,6 +31,26 @@ function pierian_child_enqueue_styles()
 add_action('wp_enqueue_scripts', 'pierian_child_enqueue_styles');
 
 
+/**
+ * Output og:author and article publish date meta tags in the head (singular posts/pages).
+ */
+function take_as_directed_og_author_and_date()
+{
+	if (!is_singular()) {
+		return;
+	}
+	$post_id = get_queried_object_id();
+	$author_name = get_the_author_meta('display_name', get_post_field('post_author', $post_id));
+	$published = get_the_date('c', $post_id);
+	if ($author_name) {
+		echo '<meta property="og:author" content="' . esc_attr($author_name) . '" />' . "\n";
+	}
+	if ($published) {
+		echo '<meta property="article:published_time" content="' . esc_attr($published) . '" />' . "\n";
+	}
+}
+add_action('wp_head', 'take_as_directed_og_author_and_date', 5);
+
 add_action('wp_head', 'take_as_directed_custom_styles_inline');
 function take_as_directed_custom_styles_inline()
 {
