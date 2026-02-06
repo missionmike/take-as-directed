@@ -224,6 +224,16 @@ function take_as_directed_book_chapter_schema()
 		$chapter_schema['datePublished'] = $published;
 	}
 
+	// Front matter: Preface, Author's Note, Introduction (positions 1–3).
+	$front_matter_genres = [
+		1 => 'Preface',
+		2 => "Author's Note",
+		3 => 'Introduction',
+	];
+	if (isset($front_matter_genres[$position])) {
+		$chapter_schema['genre'] = $front_matter_genres[$position];
+	}
+
 	echo '<script type="application/ld+json">' . "\n";
 	echo wp_json_encode($chapter_schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 	echo "\n" . '</script>' . "\n";
@@ -251,14 +261,24 @@ function take_as_directed_book_schema()
 	]);
 	$author_name = get_the_author_meta('display_name', get_post_field('post_author', $chapters[0]->ID ?? 0));
 
+	$front_matter_genres = [
+		1 => 'Preface',
+		2 => "Author's Note",
+		3 => 'Introduction',
+	];
 	$has_part = [];
 	foreach ($chapters as $i => $ch) {
-		$has_part[] = [
+		$position = $i + 1;
+		$part = [
 			'@type' => 'Chapter',
 			'name' => get_the_title($ch),
 			'url' => get_permalink($ch),
-			'position' => $i + 1,
+			'position' => $position,
 		];
+		if (isset($front_matter_genres[$position])) {
+			$part['genre'] = $front_matter_genres[$position];
+		}
+		$has_part[] = $part;
 	}
 
 	$book_schema = [
