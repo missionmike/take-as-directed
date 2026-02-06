@@ -30,6 +30,15 @@ function pierian_child_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'pierian_child_enqueue_styles');
 
+/**
+ * Output favicon link (book icon) in the head.
+ */
+function take_as_directed_favicon()
+{
+	$favicon_url = get_stylesheet_directory_uri() . '/favicon.svg';
+	echo '<link rel="icon" type="image/svg+xml" href="' . esc_url($favicon_url) . '" />' . "\n";
+}
+add_action('wp_head', 'take_as_directed_favicon', 1);
 
 /**
  * Output og:author and article publish date meta tags in the head (singular posts/pages).
