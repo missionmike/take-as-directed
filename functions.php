@@ -49,6 +49,19 @@ function take_as_directed_favicon()
 add_action('wp_head', 'take_as_directed_favicon', 1);
 
 /**
+ * Force og:type to "book" so LinkedIn and other scrapers see chapters as book content, not article.
+ * Runs at priority 15 to override theme/plugin defaults.
+ */
+function take_as_directed_og_type_book()
+{
+	if (!is_singular()) {
+		return;
+	}
+	echo '<meta property="og:type" content="book" />' . "\n";
+}
+add_action('wp_head', 'take_as_directed_og_type_book', 15);
+
+/**
  * Output og:author and chapter publish date meta tags in the head (singular posts/pages).
  * Uses article:published_time (OG has no chapter type; article is correct for content pages).
  */
