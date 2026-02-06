@@ -124,6 +124,7 @@ function take_as_directed_person_schema()
 			"jobTitle": ["Chief Technology Officer", "Senior Software Engineer", "Web Architect", "Content Creator"],
 			"description": "Michael R. Dinerstein (Mission Mike) is a technically-inclined creative with a love for family, life, innovation and expression. When not working on tech, you can find him producing YouTube content with his family.",
 			"sameAs": [
+				"https://www.missionmike.dev/",
 				"https://www.linkedin.com/in/michaeldinerstein/",
 				"https://github.com/missionmike",
 				"https://www.ampdresume.com/r/michael-dinerstein",
